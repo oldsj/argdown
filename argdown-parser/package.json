@@ -1,0 +1,61 @@
+{
+  "name": "@argdown/parser",
+  "description": "A lightweight Argdown parser for Cloudflare Workers and edge environments",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "chevrotain": "^9.0.2",
+    "eventemitter3": "^4.0.7",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.last": "^3.0.0",
+    "lodash.partialright": "^4.2.1",
+    "mdurl": "^2.0.0",
+    "punycode": "^2.3.1",
+    "string-pixel-width": "^1.11.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/lodash.clonedeep": "^4.5.9",
+    "@types/lodash.last": "^3.0.9",
+    "@types/lodash.partialright": "^4.2.9",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.0.0",
+    "chai": "^4.3.0",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.0.0",
+    "tsup": "^6.0.0",
+    "typescript": "^4.9.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "mocha --require ts-node/register test/**/*.spec.ts",
+    "test:lexer": "mocha --require ts-node/register test/lexer.spec.ts",
+    "test:parser": "mocha --require ts-node/register test/parser.spec.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christianvoigt/argdown"
+  },
+  "keywords": [
+    "argdown",
+    "parser",
+    "cloudflare-workers",
+    "edge",
+    "argumentation"
+  ]
+}
