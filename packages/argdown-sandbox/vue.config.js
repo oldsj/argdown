@@ -1,7 +1,7 @@
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 //   .BundleAnalyzerPlugin;
 module.exports = {
-  publicPath: "/sandbox/",
+  publicPath: process.env.PUBLIC_PATH || "/sandbox/",
   chainWebpack: (config) => {
     config.resolve.symlinks(false);
     config.optimization.minimize(true);

@@ -7,8 +7,12 @@
   "scripts": {
     "serve": "npm run copy-examples && vue-cli-service serve --open",
     "build": "npm run copy-examples && vue-cli-service build --dest ../../docs/.vuepress/dist/sandbox",
+    "build:cf": "npm run copy-examples && PUBLIC_PATH=/ vue-cli-service build --mode production --dest dist",
     "lint": "vue-cli-service lint",
-    "copy-examples": "rimraf \"./public/examples/*.argdown\" && copyfiles -f \"../../examples/*.argdown\" ./public/examples"
+    "copy-examples": "rimraf \"./public/examples/*.argdown\" && copyfiles -f \"../../examples/*.argdown\" ./public/examples",
+    "deploy": "npm run build:cf && wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev"
   },
   "dependencies": {
     "@argdown/codemirror-mode": "^1.7.4",
@@ -35,13 +39,14 @@
     "eslint": "7.32.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-vue": "7.18.0",
-    "node-sass": "6.0.1",
+    "sass": "^1.50.0",
     "prettier": "2.4.1",
     "raw-loader": "^4.0.1",
     "rimraf": "^3.0.0",
     "sass-loader": "^10",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-bundle-analyzer": "^4.4.0"
+    "vue-template-compiler": "2.6.14",
+    "webpack-bundle-analyzer": "^4.4.0",
+    "wrangler": "^4.43.0"
   },
   "browserslist": [
     "> 1%",
